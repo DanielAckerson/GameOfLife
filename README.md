@@ -8,7 +8,9 @@ I chose to make a version of this for a final project in my AP Computer Science 
 Developed on a laptop with a Core i3 2.27GHz processor and ATI Mobility HD Radeon 5470 1 GB graphics card.
 
 
+==========
 Controls and Features:
+
 -left click to place cells
 
 -right click to remove cells
