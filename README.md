@@ -18,6 +18,8 @@ Controls and Features:
 
 -ctrl + enter clears the grid
 
+-press G to toggle the grid overlay
+
 -press or hold space to iterate
 
 -dead cells are black & colored cells are alive
