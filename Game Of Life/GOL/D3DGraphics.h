@@ -37,14 +37,23 @@ public:
 	}
 	void DrawLine( int x1,int y1,int x2,int y2,D3DCOLOR c );
     void DrawCircle(int centerX, int centerY, int radius, D3DCOLOR c);
+    /********************************/
+    /*  User Functions              */
+
     void DrawTile(int x1, int y1, D3DCOLOR c);
-    void DrawTile(Vec2 pt, D3DCOLOR c);
+
+    /********************************/
 	void BeginFrame();
 	void EndFrame();
 public:
 	static const unsigned int	SCREENWIDTH =   800;
-    static const unsigned int	SCREENHEIGHT =  600;
-    static const unsigned int   TILESIZE =      20;
+    static const unsigned int	SCREENHEIGHT = 600;
+    /********************************/
+    /*  User Variables              */
+
+    static const unsigned int   TILESIZE = 20;
+
+    /********************************/
 private:
 	const D3DCOLOR		FILLVALUE =		BLACK;
 	IDirect3D9*			pDirect3D;
