@@ -203,20 +203,3 @@ void D3DGraphics::DrawTile(int x1, int y1, D3DCOLOR c)
         }
     }
 }
-
-void D3DGraphics::DrawTile(Vec2 pt, D3DCOLOR c)
-{
-    int x2 = int(pt.x) + TILESIZE;
-    int y2 = int(pt.y) + TILESIZE;
-    for(int y = int(pt.y); y < y2; y++)
-    {
-        if(y >= SCREENHEIGHT || y < 0)
-            break;
-        for(int x = int(pt.x); x < x2; x++)
-        {
-            if(x >= SCREENWIDTH || x < 0)
-                break;
-            PutPixel(x, y, c);
-        }
-    }
-}
