@@ -19,13 +19,15 @@
  *	along with The Chili DirectX Framework.  If not, see <http://www.gnu.org/licenses/>.  *
  ******************************************************************************************/
 #include "Game.h"
+#include <iostream>
 
 Game::Game( HWND hWnd,KeyboardServer& kServer,const MouseServer& mServer )
 :	gfx( hWnd ),
 	audio( hWnd ),
 	kbd( kServer ),
 	mouse( mServer ),
-    grid(D3DGraphics::SCREENWIDTH / D3DGraphics::TILESIZE, D3DGraphics::SCREENHEIGHT / D3DGraphics::TILESIZE)
+    grid(D3DGraphics::SCREENWIDTH / D3DGraphics::TILESIZE, D3DGraphics::SCREENHEIGHT / D3DGraphics::TILESIZE),
+    gridOverlayOn(false)
 {
 }
 
@@ -56,11 +58,6 @@ void Game::UpdateModel( )
         grid.SetCell(xCell, yCell, false);
     }
 
-    if(kbd.ReadChar() == VK_SPACE)
-    {
-        grid.Update();
-    }
-
     if(kbd.ReadKey().GetCode() == VK_RETURN)
     {
         if(kbd.KeyIsPressed(VK_CONTROL))
@@ -72,9 +69,24 @@ void Game::UpdateModel( )
             grid.Fill();
         }
     }
+
+    char key = kbd.ReadChar();
+
+    if(key == char('G') || key == char('g'))
+    {
+        gridOverlayOn = !gridOverlayOn;
+    }
+    else if(key == VK_SPACE)
+    {
+        grid.Update();
+    }
 }
 
 void Game::ComposeFrame()
 {
     grid.Draw(gfx);
+    if(gridOverlayOn)
+    {
+        gfx.DrawGridOverlay();
+    }
 }

@@ -203,3 +203,17 @@ void D3DGraphics::DrawTile(int x1, int y1, D3DCOLOR c)
         }
     }
 }
+
+void D3DGraphics::DrawGridOverlay()
+{
+    int x2 = SCREENWIDTH - 1;
+    int y2 = SCREENHEIGHT - 1;
+    for(int y = 0; y < SCREENHEIGHT; y += TILESIZE)
+    {
+        DrawLine(0, y, x2, y, WHITE);
+    }
+    for(int x = 0; x < SCREENWIDTH; x += TILESIZE)
+    {
+        DrawLine(x, 0, x, y2, WHITE);
+    }
+}

@@ -41,6 +41,7 @@ public:
     /*  User Functions              */
 
     void DrawTile(int x1, int y1, D3DCOLOR c);
+    void DrawGridOverlay();
 
     /********************************/
 	void BeginFrame();

@@ -48,6 +48,7 @@ private:
 	/********************************/
 	/*  User Variables              */
     Grid grid;
+    bool gridOverlayOn;
 	/********************************/
 	void UpdateModel();
 };
